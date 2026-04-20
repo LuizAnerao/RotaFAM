@@ -6,128 +6,69 @@
   <title>Cadastro - Rota FAM</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
     body {
       background: linear-gradient(#d9e3ea, #eef2f5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      display: flex; justify-content: center; align-items: center; height: 100vh;
     }
 
     .container {
-      width: 360px;
-      background: #fff;
-      border-radius: 25px;
-      padding: 25px;
+      width: 360px; background: #fff; border-radius: 25px; padding: 25px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 15px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 15px;
     }
 
-    .logo img {
-      width: 60px;
-    }
-
-    .logo h1 {
-      font-size: 28px;
-      color: #1f4a5a;
-    }
+    .logo img { width: 60px; }
+    .logo h1 { font-size: 28px; color: #1f4a5a; }
 
     .subtitle {
-      text-align: center;
-      font-size: 14px;
-      margin-bottom: 20px;
-      color: #555;
+      text-align: center; font-size: 14px; margin-bottom: 20px; color: #555;
     }
 
     .form-box {
-      background: #f7f7f7;
-      padding: 15px;
-      border-radius: 20px;
+      background: #f7f7f7; padding: 15px; border-radius: 20px;
     }
 
-    .input-group {
-      margin-bottom: 12px;
-    }
+    .input-group { margin-bottom: 12px; }
 
     .input-group label {
-      font-size: 13px;
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
+      font-size: 13px; display: block; margin-bottom: 5px; color: #333;
     }
 
     .input-field {
-      display: flex;
-      align-items: center;
-      background: white;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      padding: 8px;
+      display: flex; align-items: center; background: white;
+      border-radius: 10px; border: 1px solid #ccc; padding: 8px;
     }
 
-    .input-field span {
-      margin-right: 8px;
-    }
+    .input-field span { margin-right: 8px; }
 
     .input-field input {
-      border: none;
-      outline: none;
-      width: 100%;
+      border: none; outline: none; width: 100%;
     }
 
     .btn {
-      width: 100%;
-      padding: 12px;
-      border-radius: 20px;
-      border: none;
-      background: #1f4a5a;
-      color: white;
-      font-weight: bold;
-      margin-top: 10px;
+      width: 100%; padding: 12px; border-radius: 20px; border: none;
+      background: #1f4a5a; color: white; font-weight: bold;
+      margin-top: 10px; cursor: pointer;
+    }
+
+    .btn-outline {
+      width: 100%; padding: 12px; border-radius: 20px;
+      border: 2px solid #1f4a5a; background: transparent;
+      color: #1f4a5a; font-weight: bold; margin-top: 10px;
       cursor: pointer;
     }
 
     .link {
-      text-align: right;
-      font-size: 13px;
-      margin-top: 10px;
-      color: #1f4a5a;
-      cursor: pointer;
+      text-align: right; margin-top: 10px; font-size: 13px;
     }
 
-    .btn-outline {
-      width: 100%;
-      padding: 12px;
-      border-radius: 20px;
-      border: 2px solid #1f4a5a;
-      background: transparent;
-      color: #1f4a5a;
-      font-weight: bold;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .footer-link {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
-      color: #333;
-      cursor: pointer;
-    }
+    .link a { color: #1f4a5a; text-decoration: underline; }
 
   </style>
 </head>
@@ -136,7 +77,7 @@
 <div class="container">
 
   <div class="logo">
-    <img src="img/cropped-icone_fam.png" alt="Logo FAM">
+    <img src="img/logo.png" alt="Logo FAM">
     <h1>Rota FAM</h1>
   </div>
 
@@ -144,39 +85,54 @@
 
   <div class="form-box">
 
-    <div class="input-group">
-      <label>Nome Completo</label>
-      <div class="input-field">
-        <span>👤</span>
-        <input type="text" placeholder="Seu nome completo">
+    
+    <form action="/cadastrar" method="POST">
+
+      <div class="input-group">
+        <label>Nome Completo</label>
+        <div class="input-field">
+          <span>👤</span>
+          <input type="text" name="nome" placeholder="Seu nome completo" required>
+        </div>
       </div>
+
+      <div class="input-group">
+        <label>CPF/RA</label>
+        <div class="input-field">
+          <span>🪪</span>
+          <input type="text" name="cpf" placeholder="Seu CPF ou RA" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>E-mail</label>
+        <div class="input-field">
+          <span>✉️</span>
+          <input type="email" name="email" placeholder="Seu e-mail institucional (ou pessoal)" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <div class="input-field">
+          <span>🔒</span>
+          <input type="password" name="senha" placeholder="Sua senha" required>
+        </div>
+      </div>
+
+     
+      <button type="submit" class="btn">Cadastrar</button>
+
+    </form>
+
+  
+    <div class="link">
+      <a href="/">Já tem conta?</a>
     </div>
 
-    <div class="input-group">
-      <label>CPF/RA</label>
-      <div class="input-field">
-        <span>🪪</span>
-        <input type="text" placeholder="Seu CPF ou RA">
-      </div>
-    </div>
-
-    <div class="input-group">
-      <label>E-mail</label>
-      <div class="input-field">
-        <span>✉️</span>
-        <input type="email" placeholder="Seu e-mail institucional (ou pessoal)">
-      </div>
-    </div>
-
-    <button class="btn">Cadastrar</button>
-
-    <div class="link">Já tem conta?</div>
-
-    <button class="btn-outline">Fazer Login</button>
+    <button class="btn-outline" onclick="window.location.href='/'">Fazer Login</button>
 
   </div>
-
-  <div class="footer-link">Voltar para o início →</div>
 
 </div>
 

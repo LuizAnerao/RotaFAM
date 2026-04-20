@@ -6,115 +6,65 @@
   <title>Recuperação de Senha - Rota FAM</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
     body {
       background: linear-gradient(#d9e3ea, #eef2f5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      display: flex; justify-content: center; align-items: center; height: 100vh;
     }
 
     .container {
-      width: 360px;
-      background: #fff;
-      border-radius: 25px;
-      padding: 25px;
+      width: 360px; background: #fff; border-radius: 25px; padding: 25px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 15px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 15px;
     }
 
-    .logo img {
-      width: 60px;
-    }
+    .logo img { width: 60px; }
+    .logo h1 { font-size: 28px; color: #1f4a5a; }
 
-    .logo h1 {
-      font-size: 28px;
-      color: #1f4a5a;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 22px;
-      color: #1f4a5a;
-      margin-top: 10px;
-    }
+    .title { text-align: center; font-size: 22px; color: #1f4a5a; margin-top: 10px; }
 
     .subtitle {
-      text-align: center;
-      font-size: 14px;
-      margin: 10px 0 20px;
-      color: #555;
+      text-align: center; font-size: 14px; margin: 10px 0 20px; color: #555;
     }
 
     .form-box {
-      background: #f7f7f7;
-      padding: 15px;
-      border-radius: 20px;
+      background: #f7f7f7; padding: 15px; border-radius: 20px;
     }
 
-    .input-group {
-      margin-bottom: 15px;
-    }
+    .input-group { margin-bottom: 15px; }
 
     .input-group label {
-      font-size: 13px;
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
+      font-size: 13px; display: block; margin-bottom: 5px; color: #333;
     }
 
     .input-field {
-      display: flex;
-      align-items: center;
-      background: white;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      padding: 8px;
+      display: flex; align-items: center; background: white;
+      border-radius: 10px; border: 1px solid #ccc; padding: 8px;
     }
 
-    .input-field span {
-      margin-right: 8px;
-    }
+    .input-field span { margin-right: 8px; }
 
     .input-field input {
-      border: none;
-      outline: none;
-      width: 100%;
+      border: none; outline: none; width: 100%;
     }
 
     .btn {
-      width: 100%;
-      padding: 12px;
-      border-radius: 20px;
-      border: none;
-      background: #1f4a5a;
-      color: white;
-      font-weight: bold;
-      margin-top: 10px;
-      cursor: pointer;
+      width: 100%; padding: 12px; border-radius: 20px; border: none;
+      background: #1f4a5a; color: white; font-weight: bold;
+      margin-top: 10px; cursor: pointer;
     }
 
     .link {
-      text-align: center;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #1f4a5a;
-      cursor: pointer;
-      text-decoration: underline;
+      text-align: center; margin-top: 12px; font-size: 14px;
+    }
+
+    .link a {
+      color: #1f4a5a; text-decoration: underline; cursor: pointer;
     }
 
   </style>
@@ -124,7 +74,7 @@
 <div class="container">
 
   <div class="logo">
-    <img src="img/cropped-icone_fam.png" alt="Logo FAM">
+    <img src="img/logo.png" alt="Logo FAM">
     <h1>Rota FAM</h1>
   </div>
 
@@ -134,17 +84,26 @@
 
   <div class="form-box">
 
-    <div class="input-group">
-      <label>E-mail</label>
-      <div class="input-field">
-        <span>✉️</span>
-        <input type="email" placeholder="Seu e-mail cadastrado">
+    <!-- FORM ENVOLVE TUDO CORRETAMENTE -->
+    <form action="/enviar_link" method="POST">
+
+      <div class="input-group">
+        <label>E-mail</label>
+        <div class="input-field">
+          <span>✉️</span>
+          <input type="email" name="email" placeholder="Seu e-mail cadastrado" required>
+        </div>
       </div>
+
+      <!-- BOTÃO ORIGINAL (SEM DUPLICAÇÃO) -->
+      <button type="submit" class="btn">Enviar Link</button>
+
+    </form>
+
+    <!-- LINK FUNCIONAL (SEM VIRAR BOTÃO EXTRA) -->
+    <div class="link">
+      <a href="/">Voltar para o Login?</a>
     </div>
-
-    <button class="btn">Enviar Link</button>
-
-    <div class="link">Voltar para o Login?</div>
 
   </div>
 

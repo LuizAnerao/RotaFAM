@@ -1,177 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RotaFam-Login</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background: #eef2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Rota FAM</title>
 
-        .container {
-        background: #fff;
-        width: 350px;
-        padding: 25px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
-            h1 {
-      text-align: center;
-      color: #1f4a5a;
-      margin-bottom: 10px;
+    body {
+      background: linear-gradient(#d9e3ea, #eef2f5);
+      display: flex; justify-content: center; align-items: center; height: 100vh;
     }
 
-    p {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: #555;
+    .container {
+      width: 360px; background: #fff; border-radius: 25px; padding: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
-    .input-group {
-      margin-bottom: 15px;
+    .logo {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 15px;
     }
+
+    .logo img { width: 60px; }
+    .logo h1 { font-size: 28px; color: #1f4a5a; }
+
+    .subtitle {
+      text-align: center; font-size: 14px; margin-bottom: 20px; color: #555;
+    }
+
+    .form-box {
+      background: #f7f7f7; padding: 15px; border-radius: 20px;
+    }
+
+    .input-group { margin-bottom: 15px; }
 
     .input-group label {
-      font-size: 13px;
-      color: #333;
+      font-size: 13px; display: block; margin-bottom: 5px; color: #333;
     }
 
-    .input-group input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-top: 5px;
+    .input-field {
+      display: flex; align-items: center; background: white;
+      border-radius: 10px; border: 1px solid #ccc; padding: 8px;
+    }
+
+    .input-field span { margin-right: 8px; }
+
+    .input-field input {
+      border: none; outline: none; width: 100%;
     }
 
     .btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 20px;
-      background: #1f4a5a;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid #1f4a5a;
-      color: #1f4a5a;
+      width: 100%; padding: 12px; border-radius: 20px; border: none;
+      background: #1f4a5a; color: white; font-weight: bold;
+      margin-top: 10px; cursor: pointer;
     }
 
     .link {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      font-size: 13px;
-      color: #1f4a5a;
+      text-align: center; margin-top: 12px; font-size: 14px;
+    }
+
+    .link a {
+      color: #1f4a5a; text-decoration: underline;
+    }
+
+    .btn-outline {
+      width: 100%; padding: 12px; border-radius: 20px;
+      border: 2px solid #1f4a5a; background: transparent;
+      color: #1f4a5a; font-weight: bold; margin-top: 10px;
       cursor: pointer;
     }
 
-    .hidden {
-      display: none;
-    }
-
-    </style>
+  </style>
 </head>
-<div class="container">
-    <div class="logo">
-  <img src="img/Logo-FAM.jpeg" alt="Logo FAM">
-  <h1>Rota FAM</h1>
-</div>
-    <p>Acesse sua conta</p>
-
-    <div class="input-group">
-      <label>CPF/RA</label>
-      <input type="text" placeholder="Digite seu CPF ou RA">
-    </div>
-
-    <div class="input-group">
-      <label>Senha</label>
-      <input type="password" placeholder="Sua senha">
-    </div>
-
-    <button class="btn">Entrar</button>
-
-    <span class="link" onclick="mostrarRecuperar()">Esqueci minha senha</span>
-    <span class="link" onclick="mostrarCadastro()">Cadastrar-se</span>
-  </div>
-
-  <!-- CADASTRO -->
-  <div id="cadastro" class="hidden">
-    <h1>Cadastro</h1>
-
-    <div class="input-group">
-      <label>Nome</label>
-      <input type="text">
-    </div>
-
-    <div class="input-group">
-      <label>Email</label>
-      <input type="email">
-    </div>
-
-    <div class="input-group">
-      <label>Senha</label>
-      <input type="password">
-    </div>
-
-    <button class="btn">Criar Conta</button>
-
-    <span class="link" onclick="mostrarLogin()">Voltar para login</span>
-  </div>
-
-  <!-- RECUPERAR SENHA -->
-  <div id="recuperar" class="hidden">
-    <h1>Recuperar Senha</h1>
-
-    <div class="input-group">
-      <label>Email</label>
-      <input type="email" placeholder="Digite seu email">
-    </div>
-
-    <button class="btn">Enviar recuperação</button>
-
-    <span class="link" onclick="mostrarLogin()">Voltar para login</span>
-  </div>
-
-</div>
-
-<script>
-  function mostrarCadastro() {
-    document.getElementById('login').classList.add('hidden');
-    document.getElementById('cadastro').classList.remove('hidden');
-  }
-
-  function mostrarRecuperar() {
-    document.getElementById('login').classList.add('hidden');
-    document.getElementById('recuperar').classList.remove('hidden');
-  }
-
-  function mostrarLogin() {
-    document.getElementById('cadastro').classList.add('hidden');
-    document.getElementById('recuperar').classList.add('hidden');
-    document.getElementById('login').classList.remove('hidden');
-  }
-</script>
 <body>
-    
+
+<div class="container">
+
+  <div class="logo">
+    <img src="img/logo.png" alt="Logo FAM">
+    <h1>Rota FAM</h1>
+  </div>
+
+  <p class="subtitle">Acesse sua conta para começar a navegar no campus.</p>
+
+  <div class="form-box">
+
+  
+    <form action="/login" method="POST">
+
+      <div class="input-group">
+        <label>CPF/RA</label>
+        <div class="input-field">
+          <span>👤</span>
+          <input type="text" name="cpf" placeholder="Digite seu CPF ou RA" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <div class="input-field">
+          <span>🔒</span>
+          <input type="password" name="senha" placeholder="Sua senha" required>
+        </div>
+      </div>
+
+     
+      <button type="submit" class="btn">Entrar</button>
+
+    </form>
+
+  
+    <div class="link">
+      <a href="/recuperar">Esqueci minha senha?</a>
+    </div>
+
+    <button class="btn-outline" onclick="window.location.href='/cadastro'">Cadastrar-se</button>
+
+  </div>
+
+</div>
+
 </body>
 </html>
