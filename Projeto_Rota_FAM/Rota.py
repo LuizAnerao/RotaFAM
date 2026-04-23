@@ -19,10 +19,6 @@ class Usuario(db.Model):
     email = db.Column(db.String(100), unique=True)
     senha = db.Column(db.LargeBinary)
 
-@app.before_first_request
-def criar_banco():
-    db.create_all()
-
 # ================= LOGIN =================
 @app.route('/')
 def login():
@@ -64,7 +60,7 @@ def cadastrar():
 # ================= RECUPERAÇÃO =================
 @app.route('/recuperar')
 def recuperar():
-    return render_template('recuperar.html')
+    return render_template('Recuperacao.html')
 
 @app.route('/enviar_link', methods=['POST'])
 def enviar_link():
@@ -100,12 +96,9 @@ def resetar_senha(token):
 
         return redirect(url_for('login'))
 
-    return '''
-    <form method="POST">
-        <input type="password" name="senha" placeholder="Nova senha">
-        <button type="submit">Salvar</button>
-    </form>
-    '''
+    return render_template('reset.html')
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
